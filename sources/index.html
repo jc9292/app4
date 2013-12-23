@@ -101,8 +101,17 @@ $('#t2').on('click',function() { alert('ok'); });
 
 var pos1=0; var posy1=0;
 $('section').on('touchstart mousedown', function(e) {
-       pos1=e.pageX;
-       posy1=e.pageY;
+	 e.preventDefault();
+                var event = window.event;
+                if ((typeof event.touches)=='undefined') {
+                	var x1=event.pageX;
+                	var y1=event.pageY;
+                } else {
+                	var x1=event.touches[0].pageX;
+                	var y1=event.touches[0].pageY;
+                }
+       pos1=x1;
+       posy1=y1;
        var pos2=parseInt($(document).width());
        var start1=0;
        var bloq1=0;
