@@ -151,6 +151,15 @@ $('section').on('touchstart mousedown', function(e) {
             }
         });
         $('#pg'+pgCid).on('mouseup touchend', function(e) {
+            e.preventDefault();
+                var event = window.event;
+                if ((typeof event.touches)=='undefined') {
+                	var x1=event.pageX;
+                	var y1=event.pageY;
+                } else {
+                	var x1=event.touches[0].pageX;
+                	var y1=event.touches[0].pageY;
+                } 	
             $(window).unbind("mousemove touchmove");
             if (pos1!=0) {
                 if ((x1-pos1)<-50) {
