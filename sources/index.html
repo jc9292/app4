@@ -42,6 +42,7 @@ a.msel { font-weight:bold; }
 <a data-section="2" id="ml2" href="#">BLUE</a>
 <a data-section="3" id="ml3" href="#">PINK</a>
 <a data-section="4" id="ml4" href="#">GREEN</a>
+<b id=log></b>
     </div></div>
 <div id="hello">
     <section id="pg1" class="active">
@@ -107,6 +108,7 @@ $('section').on('mousedown', function(e) {
        var start1=0;
        var bloq1=0;
        $(window).on('mousemove',function(e) {
+       		$('#log').html(pos1+' '+pos2+' '+e.pageX+' '+(e.pageX-pos1)+' start='+start1+' pgCid='+pgCid);
            console.log(pos1+' '+pos2+' '+e.pageX+' '+(e.pageX-pos1)+' start='+start1+' pgCid='+pgCid);
            if ((Math.abs(e.pageX-pos1)>10) && (Math.abs(e.pageY-posy1)>Math.abs(e.pageX-pos1))) {
                bloq1=1;
