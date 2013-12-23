@@ -41,7 +41,7 @@ a.msel { font-weight:bold; }
 <a data-section="2" id="ml2" href="#">BLUE</a>
 <a data-section="3" id="ml3" href="#">PINK</a>
 <a data-section="4" id="ml4" href="#">GREEN</a>
-<b id=log></b>
+<b id=log1></b><b id=log2></b>
     </div></div>
 <div id="hello">
     <section id="pg1" class="active">
@@ -106,7 +106,7 @@ $('section').on('touchstart mousedown', function(e) {
        var pos2=parseInt($(document).width());
        var start1=0;
        var bloq1=0;
-       $('#log').html('mouse down pos1='+pos1+' posy1='+posy1);
+       $('#log1').html('mouse down pos1='+pos1+' posy1='+posy1);
        $(window).on('mousemove touchmove',function(e) {
                 e.preventDefault();
                 var event = window.event;
@@ -117,7 +117,7 @@ $('section').on('touchstart mousedown', function(e) {
                 	var x1=event.touches[0].pageX;
                 	var y1=event.touches[0].pageY;
                 }
-       		$('#log').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
+       		$('#log2').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            if ((Math.abs(x1-pos1)>10) && (Math.abs(y1-posy1)>Math.abs(x1-pos1))) {
                bloq1=1;
