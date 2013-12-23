@@ -117,7 +117,7 @@ $('section').on('touchstart mousedown', function(e) {
                 	var x1=event.touches[0].pageX;
                 	var y1=event.touches[0].pageY;
                 }
-       		$('#log').html(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
+       		$('#log').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            if ((Math.abs(x1-pos1)>10) && (Math.abs(y1-posy1)>Math.abs(x1-pos1))) {
                bloq1=1;
