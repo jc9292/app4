@@ -99,15 +99,15 @@ $('#m1 a').on('click', function(event) {
 });
 $('#t2').on('click',function() { alert('ok'); });
 
-var pos1=0; var posy1=0; var bloq1=0;
+var pos1=0; var posy1=0; var bloq1=0; var x1=0;
 $('section').on('touchstart mousedown', function(e) {
 	 e.preventDefault();
                 var event = window.event;
                 if ((typeof event.touches)=='undefined') {
-                	var x1=event.pageX;
+                	x1=event.pageX;
                 	var y1=event.pageY;
                 } else {
-                	var x1=event.touches[0].pageX;
+                	x1=event.touches[0].pageX;
                 	var y1=event.touches[0].pageY;
                 }
        pos1=x1;
@@ -120,10 +120,10 @@ $('section').on('touchstart mousedown', function(e) {
                 e.preventDefault();
                 var event = window.event;
                 if ((typeof event.touches)=='undefined') {
-                	var x1=event.pageX;
+                	x1=event.pageX;
                 	var y1=event.pageY;
                 } else {
-                	var x1=event.touches[0].pageX;
+                	x1=event.touches[0].pageX;
                 	var y1=event.touches[0].pageY;
                 }
        		$('#log2').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
@@ -160,16 +160,7 @@ $('section').on('touchstart mousedown', function(e) {
             }
         });
         $(window).on('touchend mouseup', function(e) {
-            e.preventDefault();
-                var event = window.event;
-                if ((typeof event.touches)=='undefined') {
-                	var x1=event.pageX;
-                	var y1=event.pageY;
-                } else {
-                	var x1=event.touches[0].pageX;
-                	var y1=event.touches[0].pageY;
-                }
- 	    $('#log2').html('end pos1='+pos1+' pos2='+pos2+' x1='+x1+' pgCid='+pgCid);
+            $('#log2').html('end pos1='+pos1+' pos2='+pos2+' x1='+x1+' pgCid='+pgCid);
             $(window).unbind("mousemove touchmove mouseup touchend");
             if ((pos1!=0)&&(bloq1==0)) {
                 if ((x1-pos1)<-50) {
