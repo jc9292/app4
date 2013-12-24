@@ -88,22 +88,29 @@ body{margin:0; padding:0;
 </div>
 <div style="position:relative; height:82px; background:#fff; width:100%;"></div>
 <div id="hello">
-    <section id="pg1" class="active">
-        <div id="wrapper"> 
-	        <div id="scroller" class=news>
-        
-            </div></div>
-    </section>
-    <section id="pg2">
-        <div id="wrapper2">
-	    <div id="scroller2">
-		  <ul id=ul1>
-            	</ul>
-            </div></div>    
-    </section>
-    <section id="pg3">live</section>
-    <section id="pg4">result</section>
-    <section id="pg5">plus gfgfgfgf</section>
+	<section id="pg1" class="active">
+		<div id="wrapper" class="page"> 
+			<div id="scroller" class=news>
+		</div></div>
+	</section>
+	<section id="pg2">
+		<div id="wrapper2">
+			<div id="scroller2">
+		</div></div>    
+	</section>
+	<section id="pg3">
+    		<div id="wrapper3" class="page"> 
+	        	<div id="scroller3" class="live">
+	        	live
+		</div></div>
+	</section>
+	<section id="pg4">
+    		<div id="wrapper3" class="page"> 
+	        	<div id="scroller3" class="live">
+			result
+		</div></div>
+	</section>
+	<section id="pg5">plus gfgfgfgf</section>
 </div>
 <script>
 $(function() {
@@ -112,6 +119,9 @@ $(function() {
             height: $(window).height()-82
         });
         $('#wrapper').css({
+            height: $(window).height()-82
+        });
+        $('#wrapper2').css({
             height: $(window).height()-82
         });
     }
