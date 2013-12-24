@@ -6,19 +6,11 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/iscroll-probe.js"></script> <!-- pour le scrolling vertical + le pull on refresh -->
-        <style>
-        	body{margin:0px;}
-a.msel { font-weight:bold; }
+<style>
+body{margin:0; padding:0;}
 #hello, #hello section{width:100%; height:600px;}
-
-#hello section{position: absolute;left:100%; -webkit-user-select:none; }
-
-#hello{position: relative; overflow: hidden;}
-
-#hello section:nth-child(1){background: orange; left:0%;}
-#hello section:nth-child(2){background: lightblue;}
-#hello section:nth-child(3){background: pink;}
-#hello section:nth-child(4){background: lightgreen;}
+#hello section{position:absolute; left:100%; -webkit-user-select:none; }
+#hello {position:relative; overflow:hidden; }
 #wrapper, #wrapper2 {
   position:absolute; z-index:1;
   top:0px; bottom:48px; left:0;
@@ -32,7 +24,36 @@ a.msel { font-weight:bold; }
   width:100%;
   padding:0;
 }
-        </style>
+#header { background-color: #E9E9E9; height:42px; border-bottom:1px #A9ABAE solid; }
+.logo { display:block;margin:0 auto;padding-top:2px;text-decoration:none;width:102px; }
+#navigation{
+        background: #6B8CAA; /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(16,80,157,1) 0%, rgba(0,40,98,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(16,80,157,1)), color-stop(100%,rgba(0,40,98,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(16,80,157,1) 0%,rgba(0,40,98,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(16,80,157,1) 0%,rgba(0,40,98,1) 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(16,80,157,1) 0%,rgba(0,40,98,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(16,80,157,1) 0%,rgba(0,40,98,1) 100%); /* W3C */
+        border-top:#65669D 2px solid;
+        border-bottom: 1px #002862 solid;
+        height: 35px;
+        margin-bottom: 5px;
+}
+#navigation a {
+        height: 35px;
+        float: left;
+        border-right: 1px solid #fff;
+        padding: 0 9px;
+        font-size: 16px;
+        margin-bottom: 0;
+        display: inline-block;
+        line-height: 36px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+}
+#navigation a.msel { background:#fff; color:#F40845; }
+</style>
 </head>
 <body>
 <div id="header" style="display:block; width:100%; position:fixed; top:0px; z-index:990;">
@@ -42,24 +63,13 @@ a.msel { font-weight:bold; }
  <a href="/" class="logo"><img id=logo1 src="http://m.maxifoot.fr/images/logo-maxifoot3.gif" 
   alt="Maxifoot" width=102 height=38 /></a>
 </div>
-<div style="z-index:10;position:fixed;background:#fff;height:40px;width:100%;" id="m1">
-<a data-section="1" id="ml1" class="msel" href="#">La Une</a>
-
-<a dLa Unection="2" id="ml2" href="#">BLUE</a>
-
-<a data-section="3" id="ml3" href="#">PINK</a>
-<a data-section="4" id="ml4" href="#">GREEN</a>
-
-        <ul id="navigation" style="display:block; width:100%; position:fixed; top:42px; z-index:990; overflow:hidden; white-space:nowrap;">
-                <li id=m1><a href="#" onclick="goune();">La Une</a></li>
-                <li id=m2><a href="#" onclick="gobreves();">Brèves</a></li>
-                <li id=m3 style="padding:0 11px;"><a onclick="gopage('live');" href="#">Live</a></li>
-                <li id=m4><a onclick="gopage('resus');" href="#">Résult.</a></li>
-                <li id=m5><a href="/plus.htm" style="font-size:24px;">+</a></li>
-        </ul>
-
-<b id=log1></b><b id=log2></b>
-    </div></div>
+<div id="m1" style="z-index:10;position:fixed; white-space:nowrap; top:42px; height:40px; overflow:hidden; width:100%;">
+ <a data-section="1" id="ml1" class="msel" href="#">La Une</a>
+ <a data-nection="2" id="ml2" href="#">Brèves</a>
+ <a data-section="3" id="ml3" href="#">Live</a>
+ <a data-section="4" id="ml4" href="#">Résult.</a>
+ <a data-section="4" id="ml5" href="#">+</a>               
+</div>
 <div id="hello">
     <section id="pg1" class="active">
         <div id="wrapper"> 
@@ -90,7 +100,7 @@ a.msel { font-weight:bold; }
     });
     abso();
 });
- var vit1=200;
+var vit1=200;
 var pgCid=1;
 $('#m1 a').on('click', function(event) {
     event.preventDefault();
@@ -132,7 +142,7 @@ $('section').on('touchstart mousedown', function(e) {
        var pos2=parseInt($(document).width());
        var start1=0;
        bloq1=0;
-       $('#log1').html('mouse down pos1='+pos1+' posy1='+posy1);
+// $('#log1').html('mouse down pos1='+pos1+' posy1='+posy1);
        $(window).on('mousemove touchmove',function(e) {
                 e.preventDefault();
                 var event = window.event;
@@ -143,8 +153,8 @@ $('section').on('touchstart mousedown', function(e) {
                 	x1=event.touches[0].pageX;
                 	var y1=event.touches[0].pageY;
                 }
-       		$('#log2').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
-           console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
+// $('#log2').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
+console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            if ((Math.abs(x1-pos1)>10) && (Math.abs(y1-posy1)>Math.abs(x1-pos1))) {
                bloq1=1;
            }
@@ -233,17 +243,14 @@ var myScroll2;
 var position;
 
 function updatePosition () {
-
 }
 
 function loaded () {
 	position = document.getElementById('position');
-
     myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
 	myScroll.on('scroll', updatePosition);
 	myScroll.on('scrollEnd', updatePosition);
     myScroll2 = new IScroll('#wrapper2');
 }
 loaded();
-
 </script>
