@@ -298,6 +298,7 @@ $.ajax({
                 var txt2='';
                 for (var i=0, l1=c1.length; i<l1; i++ ) {
                         var ida=c1[i][0];
+                        if ((typeof ida)=='undefined') { continue; }
      var txt0='<li id="art'+c1[i][0]+'" class="news"><h1>'+c1[i][1]+'</h1><span class="picture">';
      txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
                         imgdat1[ida]=localStorage.getItem('part'+ida);
