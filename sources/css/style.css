@@ -577,12 +577,12 @@ a.previous,li.previous{
 	border: 1px dotted silver;
 	padding-left: 12px;
 	color:#F40845;}
-.breves ul li.previous a, #contents_breves.breves ul li.previous{
+.breves ul li.previous a, .breves ul li.previous{
 	padding: 0;
 	height: 30px;
 	line-height: 30px;
 	color:#F40845;}
-.breves ul li a,#contents_breves.breves ul li {
+.breves ul li a, .breves ul li {
 	height: 50px;
 	line-height: 45px;
 	position: relative;
