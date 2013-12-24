@@ -107,6 +107,7 @@ body{margin:0; padding:0;
     });
     abso();
 });
+var nbsect1=5;
 var vit1=200;
 var pgCid=1;
 $('#m1 a').on('click', function(event) {
@@ -167,7 +168,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
            }
            if ((pos1!=0)&&(bloq1==0)) {
                 if ((x1-pos1)<-10) {
-                    if (pgCid==4) {
+                    if (pgCid==nbsect1) {
                         $('#pg'+pgCid).css('left',(x1-pos1)+'px');
                     } else {
                        // $('#pg'+pgCid).css('left',(x1-pos1)+'px');
@@ -198,7 +199,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
             $(window).unbind("mousemove touchmove mouseup touchend");
             if ((pos1!=0)&&(bloq1==0)) {
                 if ((x1-pos1)<-50) {
-                        if (pgCid<4) {
+                        if (pgCid<nbsect1) {
                             pgCid++;
                             $('#pg'+pgCid).animate({"left":"0"},vit1,'linear',function() {
                                 $('#pg'+pgCid).css({'z-index':1,'box-shadow':'none'});
