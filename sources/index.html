@@ -224,7 +224,7 @@ $('section').on('touchstart mousedown', function(e) {
                             pgCid++;
                             $('#pg'+pgCid).animate({"left":"0"},vit1,'linear',function() {
                                 $('#pg'+pgCid).css({'z-index':1,'box-shadow':'none'});
-                                $('#pg'+(pgCid-1)).css({'display':'none',"left","-100%"});
+                                $('#pg'+(pgCid-1)).css({'display':'none',"left":"-100%"});
                                 $('#m1 #ml'+(pgCid-1)).removeClass("msel");
                                 $('#m1 #ml'+pgCid).addClass("msel");
                             });
@@ -241,7 +241,7 @@ $('section').on('touchstart mousedown', function(e) {
                            pgCid--; 
                            $('#pg'+pgCid).animate({"left":"0"},vit1,'linear',function(){
                                 $('#pg'+pgCid).css({'z-index':1,'box-shadow':'none'});
-                                $('#pg'+(pgCid+1)).css({'display':'none',"left","100%"});
+                                $('#pg'+(pgCid+1)).css({'display':'none',"left":"100%"});
                                 $('#m1 #ml'+(pgCid+1)).removeClass("msel");
                                 $('#m1 #ml'+pgCid).addClass("msel");
                                }
