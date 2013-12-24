@@ -293,8 +293,10 @@ console.log(data);
                 var txt2='';
                 for (var i=0, l1=c1.length; i<l1; i++ ) {
                         var ida=c1[i][0];
-                        var txt0='<li id="art'+c1[i][0]+'" class="news goart"><h1>'+c1[i][1]+'</h1><span class="picture">';
-                        txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
+//     var txt0='<li id="art'+c1[i][0]+'" class="news goart"><h1>'+c1[i][1]+'</h1><span class="picture">';
+//     txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
+	var txt0='<li id="art'+c1[i][0]+'" class="news goart">'+c1[i][1];
+	txt0+='<img width=135 height=90 id=part'+ida+' src="">'+c1[i][2]+'</li>';
                         imgdat1[ida]=localStorage.getItem('part'+ida);
 console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
                         if (imgdat1[ida]==null) {
