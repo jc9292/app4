@@ -15,9 +15,9 @@ body{margin:0; padding:0;
         -webkit-text-size-adjust: 100%;
 }
 #hello, #hello section{width:100%; height:600px;}
-#hello section{position:absolute; left:100%; -webkit-user-select:none; background:#fff; }
+#hello section{position:absolute; left:100%; -webkit-user-select:none; background:#fff; display:none;}
 #hello {position:relative; overflow:hidden; }
-#hello section:nth-child(1){ left:0%;}
+#hello section:nth-child(1){ left:0%; display:block;}
 #wrapper, #wrapper2 {
   position:absolute; z-index:1;
   top:0px; bottom:48px; left:0;
@@ -76,7 +76,7 @@ body{margin:0; padding:0;
 </div>
 <div style="position:relative; height:82px; background:#fff; width:100%;"></div>
 <div id="hello">
-	<section id="pg1" class="active">
+	<section id="pg1">
 		<div id="wrapper" class="page"> 
 			<div id="scroller" class="news">
 		</div></div>
@@ -95,6 +95,19 @@ body{margin:0; padding:0;
 	<section id="pg4">
     		<div id="wrapper4" class="page"> 
 	        	<div id="scroller4" class="resus">
+	        	<ul>
+	        	<li><a href="/resultat-ligue-1.htm">France - Ligue 1</a></li>
+                        <li><a href="/resultat-ligue-2.htm">France - Ligue 2</a></li>
+                        <li><a href="/resultat-angleterre.htm">Angl. Premier League</a></li>
+                        <li><a href="/prochain-allemagne.htm">Allemagne - Bundesliga</a></li>
+                        <li><a href="/resultat-espagne.htm">Espagne - Liga</a></li>
+                        <li><a href="/prochain-italie.htm">Italie - Série A</a></li>
+                        <li><a href="/resultat-belgique.htm">Belgique - Lig. Jupiler</a></li>
+                        <li><a href="/resultat-pays-bas.htm">Pays-Bas - Eredivisie</a></li>
+                        <li><a href="/resultat-portugal.htm">Portugal - Liga 1</a></li>
+                        <li><a href="/resultat-suisse.htm">Suisse - Super Ligue</a></li>
+                        <li><a href="/prochain-turquie.htm">Turquie - Super Ligi</a></li>
+			</ul>
 			result
 		</div></div>
 	</section>
@@ -127,23 +140,22 @@ $('#m1 a').on('click', function(event) {
     var $toSlide= $("#hello section#pg"+pgToid);
     var $fromSlide= $("#hello section#pg"+pgCid);
     if (pgToid>pgCid) {
-        $toSlide.css("left","100%");
+        $toSlide.css({"left":"100%",'display':'block'});
         $fromSlide.animate({"left":"-100%"},vit1,'linear')
         $toSlide.animate({"left":"0%"},vit1,'linear',function() {    
-              $fromSlide.css("left","100%");
+              $fromSlide.css({"left":"100%",'display':'none'});
         });
     } else if (pgToid<pgCid) {
-        $toSlide.css("left","-100%");
+        $toSlide.css({"left":"-100%",'display':'block'});
         $fromSlide.animate({"left":"100%"},vit1,'linear')
         $toSlide.animate({"left":"0%"},vit1,'linear',function() {    
-              $fromSlide.css("left","-100%");
+              $fromSlide.css({"left":"-100%",'display':'none'});
         });
     } else { return false; }
     $('#m1 #ml'+pgCid).removeClass("msel");
     $('#m1 #ml'+pgToid).addClass("msel");
     pgCid=pgToid;
 });
-$('#t2').on('click',function() { alert('ok'); });
 
 var pos1=0; var posy1=0; var bloq1=0; var x1=0;
 $('section').on('touchstart mousedown', function(e) {
@@ -173,7 +185,7 @@ $('section').on('touchstart mousedown', function(e) {
                 	var y1=event.touches[0].pageY;
                 }
 // $('#log2').html('pos1='+pos1+' pos2='+pos2+' x1='+x1+' d='+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
-console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
+// console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid);
            if ((Math.abs(x1-pos1)>10) && (Math.abs(y1-posy1)>Math.abs(x1-pos1))) {
                bloq1=1;
            }
@@ -184,8 +196,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
                     } else {
                        // $('#pg'+pgCid).css('left',(x1-pos1)+'px');
                        if (start1==0) {
-                          $('#pg'+(pgCid+1)).css('z-index',99);
-                          $('#pg'+(pgCid+1)).css('box-shadow','-10px 0 30px #000');
+                          $('#pg'+(pgCid+1)).css({'display':'block','z-index':99,'box-shadow':'-10px 0 30px #000'});
                           start1=1;
                        }
                        $('#pg'+(pgCid+1)).css('left',(pos2+x1-pos1)+'px');
@@ -196,8 +207,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
                     } else {
                         // $('#pg'+pgCid).css('left',(x1-pos1)+'px');
                         if (start1==0) {
-                            $('#pg'+(pgCid-1)).css('z-index',99);
-                            $('#pg'+(pgCid-1)).css('box-shadow','10px 0 30px #000');
+                            $('#pg'+(pgCid-1)).css({'display':'block','z-index':99,'box-shadow','10px 0 30px #000'});
                             start1=1;
                         }
                         $('#pg'+(pgCid-1)).css('left',(-pos2+x1-pos1)+'px');
@@ -214,7 +224,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
                             pgCid++;
                             $('#pg'+pgCid).animate({"left":"0"},vit1,'linear',function() {
                                 $('#pg'+pgCid).css({'z-index':1,'box-shadow':'none'});
-                                $('#pg'+(pgCid-1)).css("left","-100%");
+                                $('#pg'+(pgCid-1)).css({'display':'none',"left","-100%"});
                                 $('#m1 #ml'+(pgCid-1)).removeClass("msel");
                                 $('#m1 #ml'+pgCid).addClass("msel");
                             });
@@ -223,15 +233,15 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
                         }
                 } else if ((x1-pos1)<0) {
                     $('#pg'+pgCid).css('left','0%');
-                    if (pgCid<4) {
-                        $('#pg'+(pgCid+1)).css({'left':'100%','z-index':1,'box-shadow':'none'});
+                    if (pgCid<nbsect1) {
+                        $('#pg'+(pgCid+1)).css({'left':'100%','display':'none','z-index':1,'box-shadow':'none'});
                     }
                 } else if ((x1-pos1)>50) {
                         if (pgCid>1) {
                            pgCid--; 
                            $('#pg'+pgCid).animate({"left":"0"},vit1,'linear',function(){
                                 $('#pg'+pgCid).css({'z-index':1,'box-shadow':'none'});
-                                $('#pg'+(pgCid+1)).css("left","100%");
+                                $('#pg'+(pgCid+1)).css({'display':'none',"left","100%"});
                                 $('#m1 #ml'+(pgCid+1)).removeClass("msel");
                                 $('#m1 #ml'+pgCid).addClass("msel");
                                }
@@ -243,7 +253,7 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
                 } else if ((x1-pos1)>0) {
                     $('#pg'+pgCid).css('left','0%');
                     if (pgCid>1) {
-                        $('#pg'+(pgCid-1)).css({'left':'-100%','z-index':1,'box-shadow':'none'});
+                        $('#pg'+(pgCid-1)).css({'left':'-100%','display':'none',z-index':1,'box-shadow':'none'});
                     }
                 }
             }
@@ -283,7 +293,7 @@ $.ajax({
         crossDomain: true,
         dataType: 'json',
         success: function( data ) {
-console.log(data);
+//console.log(data);
                 var c1=data[0][0];
                 var txt2='';
                 for (var i=0, l1=c1.length; i<l1; i++ ) {
@@ -291,7 +301,7 @@ console.log(data);
      var txt0='<li id="art'+c1[i][0]+'" class="news"><h1>'+c1[i][1]+'</h1><span class="picture">';
      txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
                         imgdat1[ida]=localStorage.getItem('part'+ida);
-console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
+//console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
                         if (imgdat1[ida]==null) {
                                 convertImgToBase64(ida,'http://photo.maxifoot.fr/'+c1[i][3]+'1.jpg?j=0');
                         }
@@ -302,7 +312,7 @@ console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
                 }
 		$('#scroller').html('<ul>'+txt2+'</ul>');
                 for (key in imgdat1) {
-console.log('img'+key+'='+imgdat1[key]);
+//console.log('img'+key+'='+imgdat1[key]);
                         $('#part'+key).attr("src",imgdat1[key]);
                 }
                 var c2=data[1][0];
