@@ -516,11 +516,11 @@ a.previous,li.previous{
 	margin-left: 135px;
 	padding-right: 15px;}
 .news h1 a,.news a .chapeau{text-decoration:none;}
-.version .news .picture img{
+.news .picture img{
 	float: left;
 	width: 139px;
 	height: 93px;}
-.version .news .chapeau {margin-left:144px;}
+.news .chapeau {margin-left:144px;}
 
 /* #Page menu sous forme de liste === */
 .menuListe ul{
@@ -566,11 +566,11 @@ a.previous,li.previous{
 .article b {font-weight:bold;}
 
 /* #Breves === */
-#contents_breves.breves ul{margin:0 -7px;}
-#contents_breves.breves ul li{
+.breves ul{margin:0 -7px;}
+.breves ul li{
 	margin-bottom: 0;
 	text-align: left;}
-#contents_breves.breves ul li.previous{
+.breves ul li.previous{
 	background: none;
 	font-weight: bold;
 	text-decoration: underline;
@@ -578,12 +578,12 @@ a.previous,li.previous{
 	border: 1px dotted silver;
 	padding-left: 12px;
 	color:#F40845;}
-#contents_breves.breves ul li.previous a, #contents_breves.breves ul li.previous{
+.breves ul li.previous a, #contents_breves.breves ul li.previous{
 	padding: 0;
 	height: 30px;
 	line-height: 30px;
 	color:#F40845;}
-#contents_breves.breves ul li a,#contents_breves.breves ul li {
+.breves ul li a,#contents_breves.breves ul li {
 	height: 50px;
 	line-height: 45px;
 	position: relative;
@@ -594,21 +594,21 @@ a.previous,li.previous{
 	margin-bottom: 0;
 	display: block;
 	text-decoration: none;}
-#contents_breves.breves ul li:last-child {
+.breves ul li:last-child {
 	border-bottom: 5px white solid;}
-#contents_breves.breves ul li span { 
+.breves ul li span { 
 	vertical-align:middle;
 	display:inline-block;
 	line-height:1.2; /* on retablit le line-height */
 }
-#contents_breves.breves ul li span.hour { 
+.breves ul li span.hour { 
 	color: #F40845;
 	font-weight: bold;
 	text-align: center;
 	width: 62px;
 	position: absolute;
 	top:18px;}
-#contents_breves.breves ul li span.title { 
+.breves ul li span.title { 
 	margin-left: 65px;
 	font-weight: bold;
 	color: #10509D;
