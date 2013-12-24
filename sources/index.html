@@ -260,7 +260,6 @@ function loaded () {
 	myScroll.on('scrollEnd', updatePosition);
     myScroll2 = new IScroll('#wrapper2');
 }
-loaded();
 
 var titres1=new Array();
 var chapo1=[];
@@ -306,12 +305,13 @@ console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
                         imgnom1[ida]=c1[i][3];
                         txt2+=txt0;
                 }
-                document.getElementById('scroller').innerHTML='<ul>'+txt2+'</ul>';
+		$('#scroller').html('<ul>'+txt2+'</ul>');
                 for (key in imgdat1) {
-                        console.log('img'+key+'='+imgdat1[key]);
+console.log('img'+key+'='+imgdat1[key]);
                         $('#part'+key).attr("src",imgdat1[key]);
                 }
         }
 });
 
+loaded();
 </script>
