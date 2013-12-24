@@ -292,12 +292,12 @@ function convertImgToBase64(ida, url){
         img.src=url;
 }
 $.ajax({
-        url: "http://m.maxifoot.fr/json_accueil.js",
+        url: "http://m.maxifoot.fr/json_all.php",
         crossDomain: true,
         dataType: 'json',
         success: function( data ) {
 console.log(data);
-                var c1=data;
+                var c1=data[0][0];
                 var txt2='';
                 for (var i=0, l1=c1.length; i<l1; i++ ) {
                         var ida=c1[i][0];
