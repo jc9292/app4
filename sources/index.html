@@ -71,10 +71,10 @@ body{margin:0; padding:0;
 </div>
 <div id="m1" style="z-index:10;position:fixed; white-space:nowrap; top:42px; overflow:hidden; width:100%;">
  <a data-section="1" id="ml1" class="msel" href="#">La Une</a>
- <a data-nection="2" id="ml2" href="#">Breves</a>
+ <a data-section="2" id="ml2" href="#">Breves</a>
  <a data-section="3" id="ml3" href="#">Live</a>
  <a data-section="4" id="ml4" href="#">Result.</a>
- <a data-section="4" id="ml5" href="#">+</a>               
+ <a data-section="5" id="ml5" href="#">+</a>               
 </div>
 <div style="position:relative; height:82px; background:#ff0; width:100%;"></div>
 <div id="hello">
@@ -116,8 +116,6 @@ $('#m1 a').on('click', function(event) {
     var pgToid = parseInt($(this).attr("data-section"));
     var $toSlide= $("#hello section#pg"+pgToid);
     var $fromSlide= $("#hello section#pg"+pgCid);
-    alert(pgToid+' '+pgCid+' '+$fromSlide);
-    alert
     if (pgToid>pgCid) {
         $toSlide.css("left","100%");
         $fromSlide.animate({"left":"-100%"},vit1,'linear')
