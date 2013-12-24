@@ -59,6 +59,21 @@ body{margin:0; padding:0;
         font-weight: bold;
 }
 #m1 a.msel { background:#fff; color:#F40845; }
+.news .picture img{
+        float: left;
+        width: 130px;
+        height: 87px;}
+.news .chapeau{
+        font-size: 14px;
+        line-height: normal;
+        margin-left: 135px;
+        padding-right: 15px;}
+.news h1 a,.news a .chapeau{text-decoration:none;}
+.version .news .picture img{
+        float: left;
+        width: 139px;
+        height: 93px;}
+.version .news .chapeau {margin-left:144px;}
 </style>
 </head>
 <body>
@@ -278,10 +293,8 @@ console.log(data);
                 var txt2='';
                 for (var i=0, l1=c1.length; i<l1; i++ ) {
                         var ida=c1[i][0];
-//     var txt0='<li id="art'+c1[i][0]+'" class="news goart"><h1>'+c1[i][1]+'</h1><span class="picture">';
-//     txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
-	var txt0='<li id="art'+c1[i][0]+'" class="news goart">'+c1[i][1];
-	txt0+='<img width=135 height=90 id=part'+ida+' src="">'+c1[i][2]+'</li>';
+     var txt0='<li id="art'+c1[i][0]+'" class="news"><h1>'+c1[i][1]+'</h1><span class="picture">';
+     txt0+='<img width=135 height=90 id=part'+ida+' src=""></span><span class="chapeau">'+c1[i][2]+'</span></li>';
                         imgdat1[ida]=localStorage.getItem('part'+ida);
 console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
                         if (imgdat1[ida]==null) {
