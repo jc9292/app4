@@ -81,8 +81,7 @@ body{margin:0; padding:0;
     <section id="pg1" class="active">
         <div id="wrapper"> 
 	        <div id="scroller">
-        gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<a href="#" id=t2>lien</a><br>
-                gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>gfg11 f gfh sdg dsgf hgdfh ghdsg hfgsdhfgdhf ghdshfd gsds ds s fj sjhd gfgf<br>
+        
             </div></div>
     </section>
     <section id="pg2">
@@ -262,4 +261,57 @@ function loaded () {
     myScroll2 = new IScroll('#wrapper2');
 }
 loaded();
+
+var titres1=new Array();
+var chapo1=[];
+var imgnom1=[];
+var imgdat1=[];
+function convertImgToBase64(ida, url){
+        var canvas = document.createElement('CANVAS');
+        var ctx = canvas.getContext('2d');
+        var img = new Image;
+        img.crossOrigin = '';
+        img.onload = function(){
+                canvas.height = img.height;
+                canvas.width = img.width;
+                ctx.drawImage(img,0,0);
+                var dat1=canvas.toDataURL();
+                imgdat1[ida]=dat1;
+                localStorage.setItem('part'+ida, dat1);
+                $('#part'+ida).attr("src",dat1);
+                canvas = null;
+                img = null;
+        };
+        img.src=url;
+}
+$.ajax({
+        url: "http://m.maxifoot.fr/json_accueil.js",
+        crossDomain: true,
+        dataType: 'json',
+        success: function( data ) {
+console.log(data);
+                var c1=data;
+                var txt2='';
+                for (var i=0, l1=c1.length; i<l1; i++ ) {
+                        var ida=c1[i][0];
+                        var txt0='<li id="art'+c1[i][0]+'" class="news goart"><h1>'+c1[i][1]+'</h1><div class="picture">';
+                        txt0+='<img width=135 height=90 id=part'+ida+' src=""></div><div class="chapeau">'+c1[i][2]+'</div></li>';
+                        imgdat1[ida]=localStorage.getItem('part'+ida);
+console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
+                        if (imgdat1[ida]==null) {
+                                convertImgToBase64(ida,'http://photo.maxifoot.fr/'+c1[i][3]+'1.jpg?j=0');
+                        }
+                        titres1[ida]=c1[i][1];
+                        chapo1[ida]=c1[i][2];
+                        imgnom1[ida]=c1[i][3];
+                        txt2+=txt0;
+                }
+                document.getElementById('scroller').innerHTML='<ul>'+txt2+'</ul>';
+                for (key in imgdat1) {
+                        console.log('img'+key+'='+imgdat1[key]);
+                        $('#part'+key).attr("src",imgdat1[key]);
+                }
+        }
+});
+
 </script>
