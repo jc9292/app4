@@ -327,7 +327,9 @@ $.ajax({
     		myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
 		myScroll.on('scroll', updatePosition);
 		myScroll.on('scrollEnd', updatePosition);
+		$('#pg2').css('display','block');
 		myScroll2 = new IScroll('#wrapper2');
+		$('#pg2').css('display','none');
         }
 });
 </script>
