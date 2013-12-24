@@ -1,0 +1,28 @@
+a.button,button,input[type="submit"],input[type="reset"],input[type="button"] {
+        background: #6B8CAA; /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(131,159,189,1) 0%, rgba(48,68,104,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(131,159,189,1)), color-stop(100%,rgba(48,68,104,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(131,159,189,1) 0%,rgba(48,68,104,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(131,159,189,1) 0%,rgba(48,68,104,1) 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(131,159,189,1) 0%,rgba(48,68,104,1) 100%); /* IE10+ */
+        background: linear-gradient(top, rgba(131,159,189,1) 0%,rgba(48,68,104,1) 100%); /* W3C */
+        border: 1px solid #2E4468;
+        border-top: 1px solid #4e6488;
+        border-left: 1px solid #4e6488;
+        padding: 4px 12px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        color: #FFF;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: -1px -1px rgba(46, 68, 104, 1);
+        cursor: pointer;
+        margin-bottom: 20px;
+        line-height: 21px;
+        font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -moz-box-shadow: 1px 1px 0px #9CACC0;
+        -webkit-box-shadow: 1px 1px 0px #9CACC0;
+        box-shadow: 1px 1px 0px #9CACC0;}
