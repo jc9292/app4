@@ -112,11 +112,12 @@ var nbsect1=5;
 var vit1=200;
 var pgCid=1;
 $('#m1 a').on('click', function(event) {
-	alert('click');
     event.preventDefault();
-    var pgToid = parseInt($(this).attr("data-section")),
-    $toSlide= $("#hello section#pg"+pgToid),
-    $fromSlide= $("#hello section#pg"+pgCid);
+    var pgToid = parseInt($(this).attr("data-section"));
+    var $toSlide= $("#hello section#pg"+pgToid);
+    var $fromSlide= $("#hello section#pg"+pgCid);
+    alert(pgToid+' '+pgCid+' '+$fromSlide);
+    alert
     if (pgToid>pgCid) {
         $toSlide.css("left","100%");
         $fromSlide.animate({"left":"-100%"},vit1,'linear')
