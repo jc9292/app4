@@ -263,12 +263,6 @@ console.log(pos1+' '+pos2+' '+x1+' '+(x1-pos1)+' start='+start1+' pgCid='+pgCid)
         });
 });
 
-var tx1='';
-for (i=0; i<=50; i++) {
-    tx1+='<li>element '+i+'</li>';
-}
-$('#ul1').html(tx1);
-
 var titres1=new Array();
 var chapo1=[];
 var imgnom1=[];
@@ -318,10 +312,18 @@ console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
 console.log('img'+key+'='+imgdat1[key]);
                         $('#part'+key).attr("src",imgdat1[key]);
                 }
+                var c2=data[1][0];
+		var txt1='<ul>';
+		for (var i=0, l1=c2.length; i<l1; i++ ) {
+ var txt0='<li id="news'+c2[i][0]+'_'+c2[i][1]+'" class="gonews"><span class="hour">'+c2[i][1]+'</span><span class="title">'+c2[i][2]+'</span></li>';
+        		txt1+=txt0;
+		}
+		$('#scoller2').html(txt1+'</ul>');
                 position = document.getElementById('position');
     		myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
 		myScroll.on('scroll', updatePosition);
 		myScroll.on('scrollEnd', updatePosition);
+		myScroll2 = new IScroll('#wrapper2');
         }
 });
 
@@ -331,9 +333,4 @@ var position;
 
 function updatePosition () {
 }
-
-function loaded () {
-    myScroll2 = new IScroll('#wrapper2');
-}
-loaded();
 </script>
