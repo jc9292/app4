@@ -246,21 +246,6 @@ for (i=0; i<=50; i++) {
 }
 $('#ul1').html(tx1);
 
-var myScroll;
-var myScroll2;
-var position;
-
-function updatePosition () {
-}
-
-function loaded () {
-	position = document.getElementById('position');
-    myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
-	myScroll.on('scroll', updatePosition);
-	myScroll.on('scrollEnd', updatePosition);
-    myScroll2 = new IScroll('#wrapper2');
-}
-
 var titres1=new Array();
 var chapo1=[];
 var imgnom1=[];
@@ -312,8 +297,22 @@ console.log(ida+' '+imgdat1[ida]+' '+c1[i][3]+'1.jpg');
 console.log('img'+key+'='+imgdat1[key]);
                         $('#part'+key).attr("src",imgdat1[key]);
                 }
+                position = document.getElementById('position');
+    		myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
+		myScroll.on('scroll', updatePosition);
+		myScroll.on('scrollEnd', updatePosition);
         }
 });
 
+var myScroll;
+var myScroll2;
+var position;
+
+function updatePosition () {
+}
+
+function loaded () {
+    myScroll2 = new IScroll('#wrapper2');
+}
 loaded();
 </script>
