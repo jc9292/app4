@@ -166,7 +166,7 @@ $('#m1 a').on('click', function(event) {
     } else if (pgToid<pgCid) {
         $toSlide.css("left","-100%");
         $fromSlide.animate({"left":"100%"},vit1,'linear')
-        $toSlide.animate({"left":"0%"},500,'linear',function() {    
+        $toSlide.animate({"left":"0%"},vit1,'linear',function() {    
               $fromSlide.css("left","-100%");
         });
     } else { return false; }
