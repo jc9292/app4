@@ -69,6 +69,25 @@ body{margin:0; padding:0;
         padding-right: 15px;}
 .news h1 a,.news a .chapeau{text-decoration:none;}
 .news .chapeau {margin-left:144px;}
+.breves ul li span {
+        vertical-align:middle;
+        display:inline-block;
+        line-height:1.2; /* on retablit le line-height */
+}
+.breves ul li span.hour {
+        color: #F40845;
+        font-weight: bold;
+        text-align: center;
+        width: 62px;
+        position: absolute;
+        top:18px;}
+.breves ul li span.title {
+        margin-left: 65px;
+        font-weight: bold;
+        color: #10509D;
+        font-size: 110%;}
+.breves ul li:nth-child(2n+1){
+        background-color:#E6E6E6 ;}
 </style>
 </head>
 <body>
@@ -95,7 +114,7 @@ body{margin:0; padding:0;
 	</section>
 	<section id="pg2">
 		<div id="wrapper2">
-			<div id="scroller2">
+			<div id="scroller2" class="breves">
 		</div></div>    
 	</section>
 	<section id="pg3">
@@ -105,8 +124,8 @@ body{margin:0; padding:0;
 		</div></div>
 	</section>
 	<section id="pg4">
-    		<div id="wrapper3" class="page"> 
-	        	<div id="scroller3" class="live">
+    		<div id="wrapper4" class="page"> 
+	        	<div id="scroller4" class="resus">
 			result
 		</div></div>
 	</section>
