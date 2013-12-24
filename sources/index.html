@@ -285,6 +285,11 @@ function convertImgToBase64(ida, url){
         };
         img.src=url;
 }
+var myScroll;
+var myScroll2;
+var position;
+function updatePosition () {
+}
 $.ajax({
         url: "http://m.maxifoot.fr/json_all.php",
         crossDomain: true,
@@ -318,19 +323,12 @@ console.log('img'+key+'='+imgdat1[key]);
  var txt0='<li id="news'+c2[i][0]+'_'+c2[i][1]+'" class="gonews"><span class="hour">'+c2[i][1]+'</span><span class="title">'+c2[i][2]+'</span></li>';
         		txt1+=txt0;
 		}
-		$('#scoller2').html(txt1+'</ul>');
-                position = document.getElementById('position');
+		$('#scroller2').html(txt1+'</ul>');
+ // position = document.getElementById('position');
     		myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
 		myScroll.on('scroll', updatePosition);
 		myScroll.on('scrollEnd', updatePosition);
 		myScroll2 = new IScroll('#wrapper2');
         }
 });
-
-var myScroll;
-var myScroll2;
-var position;
-
-function updatePosition () {
-}
 </script>
