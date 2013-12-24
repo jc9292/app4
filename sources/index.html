@@ -319,6 +319,7 @@ $.ajax({
                 var c2=data[1][0];
 		var txt1='<ul>';
 		for (var i=0, l1=c2.length; i<l1; i++ ) {
+			if ((typeof c2[i][0])=='undefined') { continue; }
  var txt0='<li id="news'+c2[i][0]+'_'+c2[i][1]+'" class="gonews"><span class="hour">'+c2[i][1]+'</span><span class="title">'+c2[i][2]+'</span></li>';
         		txt1+=txt0;
 		}
